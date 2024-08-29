@@ -6,18 +6,19 @@ public class Mechanic {
         this.name = name;
     }
 
-    public void assignRepair(Repair Repair) {
-        this.currentRepair = Repair;
-        System.out.println(name + " has been assigned to Repair: " + Repair.getDescription());
+    public void assignRepair(Repair repair) {
+        this.currentRepair = repair;
+        System.out.println(name + " has been assigned to repair: " + repair.getDescription());
     }
 
     public void completeRepair() {
         if (currentRepair != null) {
             currentRepair.completeRepair();
-            System.out.println(name + " has completed the Repair: " + currentRepair.getDescription());
+            System.out.println(name + " has completed the repair: " + currentRepair.getDescription());
             currentRepair = null;
         } else {
-            System.out.println(name + " has no Repair assigned.");
+            System.out.println(name + " has no repair assigned.");
         }
     }
 }
+
