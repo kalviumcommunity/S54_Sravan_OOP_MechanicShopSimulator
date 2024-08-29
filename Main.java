@@ -1,21 +1,17 @@
-    /**
- * Main
- */
 public class Main {
     public static void main(String[] args) {
+        Mechanic mechanic = new Mechanic("Arjun Kotha", 3);  // Mechanic can handle up to 3 repairs
 
-        Mechanic mechanic = new Mechanic("Arjun Kotha");
-        Repair repair1 = new Repair("Replacing the  battery", 300, 500);
+        Repair repair1 = new Repair("Replacing the battery", 300, 500);
+        Repair repair2 = new Repair("Oil change", 50, 150);
+        Repair repair3 = new Repair("Brake pad replacement", 200, 300);
 
-        // the workflow
-        // repair1.startRepair();
-        // mechanic.assignRepair(repair1);
-        // mechanic.completeRepair();
-        
-        // // Calculate and display the cost of the Repair
-        // double totalCost = repair1.calculateCost();
-        // System.out.println("Total cost of the Repair: $" + totalCost);
+        // Assign repairs to the mechanic
+        mechanic.assignRepair(repair1);
+        mechanic.assignRepair(repair2);
+        mechanic.assignRepair(repair3);
+
+        // Complete assigned repairs
+        mechanic.completeRepairs();
     }
-    
 }
-
