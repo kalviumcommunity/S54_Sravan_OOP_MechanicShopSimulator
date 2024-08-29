@@ -12,12 +12,12 @@ public class Repair {
     }
 
     public void startRepair() {
-        System.out.println("Starting Repair: " + description);
+        System.out.println("Starting repair: " + description);
     }
 
     public void completeRepair() {
         this.isCompleted = true;
-        System.out.println("Completed the repair : " + description);
+        System.out.println("Completed the repair: " + description);
     }
 
     public double calculateCost() {
