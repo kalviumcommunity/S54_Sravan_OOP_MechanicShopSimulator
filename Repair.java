@@ -4,6 +4,8 @@ public class Repair {
     private double partsCost;
     private boolean isCompleted;
 
+    private static int completedRepairs = 0;
+
     public Repair(String description, double laborCost, double partsCost) {
         this.description = description;
         this.laborCost = laborCost;
@@ -17,6 +19,7 @@ public class Repair {
 
     public void completeRepair() {
         this.isCompleted = true;
+        completedRepairs++; 
         System.out.println("Completed the repair: " + description);
     }
 
@@ -30,5 +33,9 @@ public class Repair {
 
     public boolean isCompleted() {
         return isCompleted;
+    }
+
+    public static int getCompletedRepairsCount() {
+        return completedRepairs;
     }
 }
