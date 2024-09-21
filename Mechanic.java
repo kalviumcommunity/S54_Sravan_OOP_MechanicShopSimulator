@@ -2,8 +2,15 @@ public class Mechanic {
     private String name;
     private Repair currentRepair;
 
+    private static int mechanicCount = 0;
+
     public Mechanic(String name) {
         this.name = name;
+        mechanicCount++; // Increment the static counter when a new mechanic is created
+    }
+
+    public static int getMechanicCount() {
+        return mechanicCount;
     }
 
     public void assignRepair(Repair repair) {
@@ -21,4 +28,3 @@ public class Mechanic {
         }
     }
 }
-
