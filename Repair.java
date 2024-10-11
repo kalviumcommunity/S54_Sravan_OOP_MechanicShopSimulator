@@ -6,6 +6,15 @@ public class Repair {
 
     private static int completedRepairs = 0;
 
+      // Default Constructor 
+      public Repair() {
+        this.description = "General Repair";  // Default description
+        this.laborCost = 100; 
+        this.partsCost = 50;   
+        this.isCompleted = false;
+    }
+
+    // Parameterized Constructor
     public Repair(String description, double laborCost, double partsCost) {
         this.description = description;
         this.laborCost = laborCost;
