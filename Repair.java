@@ -27,10 +27,16 @@ public class Repair {
         return laborCost + partsCost;
     }
 
+    // Mutator (Setter) for description
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    // Getter for description 
     public String getDescription() {
         return description;
     }
-
+    //  Getter for completed status
     public boolean isCompleted() {
         return isCompleted;
     }
