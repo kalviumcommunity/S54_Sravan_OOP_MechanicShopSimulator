@@ -4,10 +4,17 @@ public class Mechanic {
 
     private static int mechanicCount = 0;
 
+      // Default Constructor
+      public Mechanic() {
+        this.name = "DEFAULT Mechanic"; 
+    }
+
+    // Parameterized Constructor (Takes name as parameter)
     public Mechanic(String name) {
         this.name = name;
         mechanicCount++; // Increment the static counter when a new mechanic is created
     }
+
       // Accessor (Getter) for name
       public String getName() {
         return name;
