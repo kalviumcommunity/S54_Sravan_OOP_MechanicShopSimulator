@@ -8,7 +8,15 @@ public class Mechanic {
         this.name = name;
         mechanicCount++; // Increment the static counter when a new mechanic is created
     }
-
+      // Accessor (Getter) for name
+      public String getName() {
+        return name;
+    }
+    
+    // Mutator (Setter) for name
+    public void setName(String name) {
+        this.name = name;
+    }
     public static int getMechanicCount() {
         return mechanicCount;
     }
