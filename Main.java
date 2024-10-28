@@ -6,11 +6,6 @@ public class Main {
         Mechanic mechanic1 = new Mechanic("John Cena");
         Mechanic mechanic2 = new Mechanic("The Rock");
 
-        // Encapsulated access to the mechanic's name
-        System.out.println("Mechanic's name before change: " + mechanic1.getName());
-        mechanic1.setName("The Rock");
-        System.out.println("Mechanic's name after change: " + mechanic1.getName());
-
         // Creating an array of Repair objects
         ArrayList<Repair> repairs = new ArrayList<>();
         repairs.add(new Repair("Replacing the battery", 300, 500));
@@ -23,7 +18,11 @@ public class Main {
             mechanic1.completeRepair();
         }
 
-        //  total count of mechanics and completed repairs
+        // Creating a SeniorMechanic
+        SeniorMechanic seniorMechanic = new SeniorMechanic("The Undertaker");
+        seniorMechanic.superviseRepair();
+
+        // Display total count of mechanics and completed repairs
         System.out.println("Total number of mechanics: " + Mechanic.getMechanicCount());
         System.out.println("Total number of completed repairs: " + Repair.getCompletedRepairsCount());
 

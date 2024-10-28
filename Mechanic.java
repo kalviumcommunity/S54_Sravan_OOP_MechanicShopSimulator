@@ -1,29 +1,20 @@
-public class Mechanic {
-    private String name;
+// Mechanic class extending Employee (Single Inheritance)
+public class Mechanic extends Employee {
     private Repair currentRepair;
-
     private static int mechanicCount = 0;
 
-      // Default Constructor
-      public Mechanic() {
-        this.name = "DEFAULT Mechanic"; 
+    // Default constructor
+    public Mechanic() {
+        super("DEFAULT Mechanic"); 
     }
 
-    // Parameterized Constructor (Takes name as parameter)
+    // Parameterized constructor
     public Mechanic(String name) {
-        this.name = name;
-        mechanicCount++; // Increment the static counter when a new mechanic is created
+        super(name);  
+        mechanicCount++; 
     }
 
-      // Accessor (Getter) for name
-      public String getName() {
-        return name;
-    }
-    
-    // Mutator (Setter) for name
-    public void setName(String name) {
-        this.name = name;
-    }
+    // Static method to get the count of mechanics
     public static int getMechanicCount() {
         return mechanicCount;
     }
