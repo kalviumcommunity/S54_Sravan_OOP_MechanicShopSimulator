@@ -3,14 +3,14 @@ public class Repair {
     private double laborCost;
     private double partsCost;
     private boolean isCompleted;
-
+    
     private static int completedRepairs = 0;
 
-      // Default Constructor 
-      public Repair() {
-        this.description = "General Repair";  // Default description
-        this.laborCost = 100; 
-        this.partsCost = 50;   
+    // Default Constructor
+    public Repair() {
+        this.description = "General Repair";
+        this.laborCost = 100;
+        this.partsCost = 50;
         this.isCompleted = false;
     }
 
@@ -22,13 +22,24 @@ public class Repair {
         this.isCompleted = false;
     }
 
+    // Overloaded startRepair method with no parameters
     public void startRepair() {
         System.out.println("Starting repair: " + description);
     }
 
+    // Overloaded startRepair method with additional details
+    public void startRepair(String details) {
+        System.out.println("Starting repair: " + description + ". Additional details: " + details);
+    }
+
+    // Overloaded startRepair method with additional details and estimated duration
+    public void startRepair(String details, int durationHours) {
+        System.out.println("Starting repair: " + description + ". Additional details: " + details + ". Estimated duration: " + durationHours + " hours.");
+    }
+
     public void completeRepair() {
         this.isCompleted = true;
-        completedRepairs++; 
+        completedRepairs++;
         System.out.println("Completed the repair: " + description);
     }
 
@@ -36,18 +47,12 @@ public class Repair {
         return laborCost + partsCost;
     }
 
-    // Mutator (Setter) for description
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    // Getter for description 
+    // Getter and Setter for description
     public String getDescription() {
         return description;
     }
-    //  Getter for completed status
-    public boolean isCompleted() {
-        return isCompleted;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public static int getCompletedRepairsCount() {
