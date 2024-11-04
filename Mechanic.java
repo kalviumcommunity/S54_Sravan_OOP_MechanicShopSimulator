@@ -3,18 +3,15 @@ public class Mechanic extends Employee {
     private Repair currentRepair;
     private static int mechanicCount = 0;
 
-    // Default constructor
     public Mechanic() {
-        super("DEFAULT Mechanic"); 
+        super("DEFAULT Mechanic");
     }
 
-    // Parameterized constructor
     public Mechanic(String name) {
-        super(name);  
-        mechanicCount++; 
+        super(name);
+        mechanicCount++;
     }
 
-    // Static method to get the count of mechanics
     public static int getMechanicCount() {
         return mechanicCount;
     }
@@ -32,5 +29,10 @@ public class Mechanic extends Employee {
         } else {
             System.out.println(name + " has no repair assigned.");
         }
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Mechanic Name: " + name);
     }
 }

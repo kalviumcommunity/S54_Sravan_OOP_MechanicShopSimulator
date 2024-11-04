@@ -1,4 +1,5 @@
-public class Employee {
+// Abstract Employee class
+abstract class Employee {
     protected String name;
 
     public Employee(String name) {
@@ -13,7 +14,6 @@ public class Employee {
         this.name = name;
     }
 
-    public void displayInfo() {
-        System.out.println("Employee Name: " + name);
-    }
+    // Abstract method (virtual function) to be implemented by subclasses
+    public abstract void displayInfo();
 }
