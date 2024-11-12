@@ -1,39 +1,46 @@
 package src;
-import java.util.ArrayList;
 
 import src.employees.Mechanic;
 import src.employees.SeniorMechanic;
 import src.repairs.Repair;
+import src.repairs.AdvancedRepair;
+import src.repairs.RepairManager;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        // Using Liskov Substitution Principle: SeniorMechanic can be used as Mechanic
-        Mechanic mechanic1 = new Mechanic("John Cena");
-        Mechanic mechanic2 = new SeniorMechanic("The Undertaker"); // Substituting Mechanic with SeniorMechanic
+        // SRP: The Employee, Mechanic, SeniorMechanic, Repair, and RepairManager classes each have a single responsibility.
+        
+        // instances of Mechanic and SeniorMechanic
+        Mechanic mechanic1 = new Mechanic("John");
+        SeniorMechanic seniorMechanic = new SeniorMechanic("Alice");
 
-        // Creating an array of Repair objects
+        RepairManager repairManager = new RepairManager();
+
+        //  Repair instances
+        Repair basicRepair = new Repair("Battery Replacement", 300, 500);
+        AdvancedRepair advancedRepair = new AdvancedRepair("Engine Overhaul", 700, 1200, "Engine diagnostics and tuning required");
+
+        // Using Open/Closed Principle with Repair and AdvancedRepair
         ArrayList<Repair> repairs = new ArrayList<>();
-        repairs.add(new Repair("Replacing the battery", 300, 500));
-        repairs.add(new Repair("Fixing the engine", 400, 800));
-        repairs.add(new Repair("Oil change", 100, 200));
+        repairs.add(basicRepair);
+        repairs.add(advancedRepair);
 
-        System.out.println("Mechanic 1:");
-        mechanic1.displayInfo();  // Display info of Mechanic instance
-        System.out.println("Mechanic 2 (Senior Mechanic):");
-        mechanic2.displayInfo();  // Display info of SeniorMechanic instance
-
-        if (mechanic2 instanceof SeniorMechanic) {
-            ((SeniorMechanic) mechanic2).superviseRepair();  // Only SeniorMechanic can supervise repairs
-        }
-
-        System.out.println("Total number of mechanics: " + Mechanic.getMechanicCount());
-        System.out.println("Total number of completed repairs: " + Repair.getCompletedRepairsCount());
-
-        // Calculate the total cost of all repairs
-        double totalCost = 0;
+        // Assign and complete each repair, showcasing the Liskov Substitution Principle
         for (Repair repair : repairs) {
-            totalCost += repair.calculateCost();
+            repairManager.assignRepair(mechanic1, repair);
+            repair.startRepair();  // Demonstrates polymorphism
+            repairManager.completeRepair(mechanic1, repair);
         }
-        System.out.println("Total cost of all repairs: $" + totalCost);
+
+        // SeniorMechanic supervising repair work (Liskov Substitution - SeniorMechanic can replace Mechanic in management tasks)
+        seniorMechanic.superviseRepair();
+
+        // Display mechanic infor (SRP & Liskov)
+        mechanic1.displayInfo();
+        seniorMechanic.displayInfo();
+
+        System.out.println("Total completed repairs: " + Repair.getCompletedRepairsCount());
     }
 }

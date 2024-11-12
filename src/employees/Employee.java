@@ -1,6 +1,6 @@
 package src.employees;
 // Abstract Employee class
-abstract class Employee {
+public abstract class Employee {
     protected String name;
 
     public Employee(String name) {
