@@ -7,9 +7,9 @@ import src.repairs.Repair;
 
 public class Main {
     public static void main(String[] args) {
-        // Creating a Mechanic using new for dynamic memory allocation
+        // Using Liskov Substitution Principle: SeniorMechanic can be used as Mechanic
         Mechanic mechanic1 = new Mechanic("John Cena");
-        Mechanic mechanic2 = new Mechanic("The Rock");
+        Mechanic mechanic2 = new SeniorMechanic("The Undertaker"); // Substituting Mechanic with SeniorMechanic
 
         // Creating an array of Repair objects
         ArrayList<Repair> repairs = new ArrayList<>();
@@ -17,12 +17,15 @@ public class Main {
         repairs.add(new Repair("Fixing the engine", 400, 800));
         repairs.add(new Repair("Oil change", 100, 200));
 
+        System.out.println("Mechanic 1:");
+        mechanic1.displayInfo();  // Display info of Mechanic instance
+        System.out.println("Mechanic 2 (Senior Mechanic):");
+        mechanic2.displayInfo();  // Display info of SeniorMechanic instance
 
-        // Creating a SeniorMechanic
-        SeniorMechanic seniorMechanic = new SeniorMechanic("The Undertaker");
-        seniorMechanic.superviseRepair();
+        if (mechanic2 instanceof SeniorMechanic) {
+            ((SeniorMechanic) mechanic2).superviseRepair();  // Only SeniorMechanic can supervise repairs
+        }
 
-        // Display total count of mechanics and completed repairs
         System.out.println("Total number of mechanics: " + Mechanic.getMechanicCount());
         System.out.println("Total number of completed repairs: " + Repair.getCompletedRepairsCount());
 
