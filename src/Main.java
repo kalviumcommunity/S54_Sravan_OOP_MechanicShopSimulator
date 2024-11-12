@@ -1,4 +1,9 @@
+package src;
 import java.util.ArrayList;
+
+import src.employees.Mechanic;
+import src.employees.SeniorMechanic;
+import src.repairs.Repair;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,11 +17,6 @@ public class Main {
         repairs.add(new Repair("Fixing the engine", 400, 800));
         repairs.add(new Repair("Oil change", 100, 200));
 
-        // Assign and complete each repair job
-        for (Repair repair : repairs) {
-            mechanic1.assignRepair(repair);
-            mechanic1.completeRepair();
-        }
 
         // Creating a SeniorMechanic
         SeniorMechanic seniorMechanic = new SeniorMechanic("The Undertaker");

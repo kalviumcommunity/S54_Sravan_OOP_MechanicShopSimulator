@@ -1,3 +1,4 @@
+package src.employees;
 // Abstract Employee class
 abstract class Employee {
     protected String name;

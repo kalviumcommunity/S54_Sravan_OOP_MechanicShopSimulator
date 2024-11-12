@@ -1,3 +1,4 @@
+package src.repairs;
 public class Repair {
     private String description;
     private double laborCost;
