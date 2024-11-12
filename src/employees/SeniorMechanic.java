@@ -1,4 +1,7 @@
+package src.employees;
 // SeniorMechanic class extending Mechanic (Multilevel Inheritance)
+// SeniorMechanic subclass replacing Mechanic in code
+
 public class SeniorMechanic extends Mechanic {
     public SeniorMechanic(String name) {
         super(name);
